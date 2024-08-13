@@ -46,9 +46,7 @@ class UnidadeController extends Controller
         return Unidade::findOrFail($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, string $id)
     {
         //Realizar uma atualização em uma unidade especifica 
