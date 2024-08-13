@@ -25,4 +25,9 @@ class Unidade extends Model
         });
     }
 
+    public function atendimentos()
+{
+    return $this->hasMany(Atendimento::class, 'unidade_id');
+}
+
 }

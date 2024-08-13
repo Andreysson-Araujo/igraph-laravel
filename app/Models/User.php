@@ -86,4 +86,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->attributes['password'] = bcrypt($value);
     }
+    
+    public function atendimentos()
+{
+    return $this->hasMany(Atendimento::class, 'usuario_id');
+}
 }
