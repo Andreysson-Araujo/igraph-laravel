@@ -15,9 +15,12 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->date('date');
             $table->integer('qtd');
-            $table->foreignId('unidade_id')->constrained('unidades')->onDelete('cascade');
-            $table->foreignId('servico_id')->constrained('servicos')->onDelete('cascade');
-            $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');
+            $table->uuid('unidade_id');
+            $table->foreign('unidade_id')->references('id')->on('unidades')->onDelete('cascade');
+            $table->uuid('servico_id');
+            $table->foreign('servico_id')->references('id')->on('servicos')->onDelete('cascade');
+            $table->uuid('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('comentarios')->nullable();
             $table->timestamps();
         });
