@@ -14,6 +14,10 @@ class Atendimento extends Model
         'unidade_id', 'servico_id', 'usuario_id', 'comentarios', 'qtd', 'date'
     ];
 
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     public static function boot()
     {
         parent::boot();

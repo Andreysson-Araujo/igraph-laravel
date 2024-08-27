@@ -58,17 +58,7 @@ class AtendimentoController extends Controller
     public function show(string $id)
     {
         // Carregar o atendimento específico com as relações
-        $atendimento = Atendimento::with(['unidade', 'servico', 'usuario'])->findOrFail($id);
-
-        return response()->json([
-            'id' => $atendimento->id,
-            'date' => $atendimento->date,
-            'qtd' => $atendimento->qtd,
-            'comentarios' => $atendimento->comentarios,
-            'unidade' => $atendimento->unidade->name, // Nome da unidade
-            'servico' => $atendimento->servico->name, // Nome do serviço
-            'usuario' => $atendimento->usuario->name, // Nome do usuário
-        ]);
+        return Atendimento::findOrFail($id);
     }
 
     /**
